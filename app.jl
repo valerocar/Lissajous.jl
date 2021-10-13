@@ -42,13 +42,9 @@ app.layout = html_div(
         html_center(html_div(style=Dict("width"=>"420px"),[slider1,html_p(raw"\(\omega_1\)"),slider2, html_p(raw"\(\omega_2\)")]))
     ]
 )
-ω1_old = 1
-ω2_old = 1
+
 callback!(app,Output("graph","figure"), Input("slider1","value"), Input("slider2","value")) do ω1, ω2
-    println(string(ω1_old)*","*string(ω2_old))
     global ω1_old, ω2_old
-    ω1_old = ω1
-    ω2_old = ω2
     myplot(ω1,ω2)
 end
 
