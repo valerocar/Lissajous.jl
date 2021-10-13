@@ -11,7 +11,7 @@ layout = Layout(xaxis_title="x", yaxis_title="y",
     xaxis_range=[-sd,sd],yaxis_range=[-sd,sd], title="Lissajous Curve",
     width=plot_width, height=plot_height)
 
-l = 3    
+l = 1   
 t = LinRange(0.0,l*2*pi,500)
 
 function myplot(ω1,ω2)
@@ -30,9 +30,9 @@ curve = myplot(1,1)
 
 curve_graph = dcc_graph(id="graph",figure=curve)
 
-slider1 = dcc_slider(id="slider1",min=1, max=10,step=.01,value=1, marks=Dict([i => ("$(i)") for i = 1:10]))
+slider1 = dcc_slider(id="slider1",min=1, max=10,step=1,value=1, marks=Dict([i => ("$(i)") for i = 1:10]))
 
-slider2 = dcc_slider(id="slider2",min=1,max=10, step=.01,value=1, marks=Dict([i => ("$(i)") for i = 1:10]))
+slider2 = dcc_slider(id="slider2",min=1,max=10, step=1,value=1, marks=Dict([i => ("$(i)") for i = 1:10]))
 
 # App Layout
 app.layout = html_div(
